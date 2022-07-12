@@ -136,8 +136,14 @@ Calculate minimum, mean, median, and maximum average daily rate (`adr`) grouped 
 Which type of hotel is higher, on average?
 
 ```{r label-me-3}
-# add code here
-# pay attention to correctness and code style
+hotels %>%
+  group_by(hotel) %>%
+  summarize(
+    mean_adr = mean(adr),
+    min_adr = min(adr),
+    max_adr = max(adr),
+    med_adr = max(adr)
+    )
 ```
 
 ### Exercise 8.

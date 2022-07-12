@@ -314,9 +314,21 @@ grouped by `hotel` type so that you can get these statistics separately
 for resort and city hotels. Which type of hotel is higher, on average?
 
 ``` r
-# add code here
-# pay attention to correctness and code style
+hotels %>%
+  group_by(hotel) %>%
+  summarize(
+    mean_adr = mean(adr),
+    min_adr = min(adr),
+    max_adr = max(adr),
+    med_adr = max(adr)
+    )
 ```
+
+    ## # A tibble: 2 × 5
+    ##   hotel        mean_adr min_adr max_adr med_adr
+    ##   <chr>           <dbl>   <dbl>   <dbl>   <dbl>
+    ## 1 City Hotel      105.     0       5400    5400
+    ## 2 Resort Hotel     95.0   -6.38     508     508
 
 ### Exercise 8.
 
