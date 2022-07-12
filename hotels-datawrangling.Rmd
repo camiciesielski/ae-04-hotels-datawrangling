@@ -138,7 +138,7 @@ Which type of hotel is higher, on average?
 ```{r label-me-3}
 hotels %>%
   group_by(hotel) %>%
-  summarize(
+  summarise(
     mean_adr = mean(adr),
     min_adr = min(adr),
     max_adr = max(adr),
@@ -155,9 +155,10 @@ You can investigate the data in the viewer to locate these values, but preferabl
 
 **Hint:** For example, you can `filter` for the given `adr` amounts and `select` the relevant columns.
 
-```{r label-me-4}
-# add code here
-# pay attention to correctness and code style
+```{r outliers}
+hotels %>%
+  filter(adr == min(adr) | adr == max(adr)) %>% 
+  select(adr, hotel, arrival_date_year, arrival_date_month, adults, children, babies)
 ```
 
 ## Data dictionary
